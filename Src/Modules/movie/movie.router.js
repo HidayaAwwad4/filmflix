@@ -8,12 +8,13 @@ import  fileUpload from '../../Utils/multer.js';
 const router = Router();
 
 router.post('/', auth([roles.SuperAdmin, roles.Admin]),
-    fileUpload().fields([{ name: 'image', maxCount: 1 }, { name: 'video', maxCount: 1 }]),
+    fileUpload().fields([{ name: 'poster', maxCount: 1 }, { name: 'videoUrl', maxCount: 1 }]),
     validation(createMovieSchema), asyncHandler(movieController.createMovie
 ));
 router.put('/:id', auth([roles.SuperAdmin, roles.Admin]), validation(updateMovieSchema), asyncHandler(movieController.updateMovie));
 router.delete('/:id', auth([roles.SuperAdmin]), asyncHandler(movieController.deleteMovie));
 router.get('/:id', asyncHandler(movieController.getMovieById));
 router.get('/', asyncHandler(movieController.getAllMovies));
+router.get('/search/filter', asyncHandler(movieController.searchAndFilterMovies));
 
 export default router;

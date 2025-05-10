@@ -1,71 +1,27 @@
 import mongoose, { Schema, Types } from 'mongoose';
 
-const movieSchema = new Schema({
-    title: {
-        type: String,
-        required: true,
-        unique: true,
-    },
-    genre: {
-        type: String,
+const ratingSchema = new Schema({
+    userId: {
+        type: Types.ObjectId,
+        ref: 'User',
         required: true,
     },
-    director: {
-        type: String,
-        required: true,
-    },
-    cast: {
-        type: [String],  
-        default: [],
-    },
-    releaseYear: {
-        type: Number,
-        required: true,
-    },
-    description: { 
-        type: String,
-        required: true,
-    },
-    duration: { 
-        type: Number,
-        required: true,
-    },
-    language: {
-        type: String,
+    movieId: {
+        type: Types.ObjectId,
+        ref: 'Movie',
         required: true,
     },
     rating: {
         type: Number,
-        min: 0,
+        required: true,
+        min: 1,
         max: 5,
-        default: 0,
-    },
-    userRatings: [{
-        userId: {
-            type: Types.ObjectId,
-            ref: 'User',
-        },
-        rating: {
-            type: Number,
-            min: 1,
-            max: 5,
-        },
-    }],
-    averageRating: {
-        type: Number,
-        default: 0,
-    },
-    poster: { 
-        type: String, 
-        //required: true,
-    },
-    videoUrl: { 
-        type: String,
-        //required: true, 
     },
 }, {
     timestamps: true,
 });
 
-const movieModel = mongoose.model('Movie', movieSchema);
-export default movieModel;
+ratingSchema.index({ userId: 1, movieId: 1 }, { unique: true }); // ممنوع المستخدم يرجع يقيم نفس الفلم
+
+const ratingModel = mongoose.model('Rating', ratingSchema);
+export default ratingModel;
