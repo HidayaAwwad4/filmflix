@@ -5,7 +5,7 @@ import movieRouter from './Modules/movie/movie.router.js';
 import commentRouter from "./Modules/comment/comment.router.js";
 import movieRecommendationRouter from "./Modules/movieRecommendation/movieRecommendation.router.js";
 import notificationRouter from "./Modules/notification/notification.router.js";
-import ratingRouter from "./Modules/rating/rating.router.js";
+//import ratingRouter from "./Modules/rating/rating.router.js";
 
 const initApp = (app,express)=>{
     connectDb();
@@ -16,7 +16,7 @@ const initApp = (app,express)=>{
     app.use('/comment',commentRouter);
     app.use('/movieRecommendation',movieRecommendationRouter);
     app.use('/notification',notificationRouter);
-    app.use('/rating',ratingRouter);
+    //app.use('/rating',ratingRouter);
     app.use('*',(req,res)=>{
         return res.status(404).json({message:"page not found"});
     });
