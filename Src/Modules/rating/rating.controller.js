@@ -1,4 +1,4 @@
-import ratingModel from '../../../DB/models/Rating.model.js';
+/*import ratingModel from '../../../DB/models/Rating.model.js';
 import movieModel from '../../../DB/models/Movie.model.js';
 import { AppError } from '../../../AppError.js';
 
@@ -37,3 +37,4 @@ export const getMovieRatings = async (req, res, next) => {
     const ratings = await ratingModel.find({ movieId }).populate('userId', 'userName');
     res.status(200).json({ message: "Ratings fetched", ratings });
 };
+*/

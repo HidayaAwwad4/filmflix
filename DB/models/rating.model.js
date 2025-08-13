@@ -1,4 +1,4 @@
-import mongoose, { Schema } from "mongoose";
+/*import mongoose, { Schema } from "mongoose";
 
 const ratingSchema = new Schema({
     movie: {
@@ -23,3 +23,4 @@ const ratingSchema = new Schema({
 
 const ratingModel = mongoose.models.Rating || mongoose.model('Rating', ratingSchema);
 export default ratingModel;
+*/

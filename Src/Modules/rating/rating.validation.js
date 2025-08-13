@@ -1,4 +1,4 @@
-import joi from "joi";
+/*import joi from "joi";
 
 export const addOrUpdateRatingSchema = {
     body: joi.object({
@@ -6,3 +6,4 @@ export const addOrUpdateRatingSchema = {
         value: joi.number().min(1).max(5).required()
     })
 };
+*/
