@@ -28,8 +28,8 @@ export const createMovie = async (req, res, next) => {
             description,
             duration,
             language,
-            //poster: imageUrl, 
-            //videoUrl  
+            poster: imageUrl, 
+            videoUrl  
         });
 
         res.status(201).json({ message: "Movie created successfully", movie: newMovie });
@@ -98,7 +98,7 @@ export const searchAndFilterMovies = async (req, res, next) => {
         const filter = {};
 
         if (title) {
-            filter.title = { $regex: title, $options: 'i' }; // case-insensitive search
+            filter.title = { $regex: title, $options: 'i' }; 
         }
 
         if (genre) {

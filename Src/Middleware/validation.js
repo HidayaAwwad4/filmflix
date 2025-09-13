@@ -22,8 +22,8 @@ export const generalFields= {
     }),
 }
 const validation = (schema)=>{
-    const validationArray = [];
     return (req,res,next)=>{
+        const validationArray = [];
         dataMethods.forEach(key=>{
             if(schema[key]){
                 const validationResult = schema[key].validate(req[key],{abortEarly:false});

@@ -3,7 +3,7 @@ import movieModel from "../../../DB/models/Movie.model.js";
 import {AppError} from "../../../AppError.js";
 
 export const getRecommendations = async (req, res, next) => {
-    const userId = req.user._id;
+    const userId =req.id;
 
     const user = await userModel.findById(userId);
     if (!user || !user.preferences || user.preferences.length === 0) {

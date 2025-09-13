@@ -1,7 +1,5 @@
 import commentModel from '../../../DB/models/Comment.model.js';
-import { AppError } from '../../../AppError.js';
-
-// إضافة تعليق جديد
+import {AppError} from "../../../AppError.js";
 export const addComment = async (req, res, next) => {
     const { movieId, userId, content, rating } = req.body;
 
@@ -19,7 +17,6 @@ export const addComment = async (req, res, next) => {
     }
 };
 
-// الحصول على جميع التعليقات لفيلم معين
 export const getCommentsByMovie = async (req, res, next) => {
     const { movieId } = req.params;
 
@@ -36,7 +33,6 @@ export const getCommentsByMovie = async (req, res, next) => {
     }
 };
 
-// تحديث تعليق معين
 export const updateComment = async (req, res, next) => {
     const { id } = req.params;
     const { content, rating } = req.body;
@@ -54,7 +50,6 @@ export const updateComment = async (req, res, next) => {
     }
 };
 
-// حذف تعليق
 export const deleteComment = async (req, res, next) => {
     const { id } = req.params;
 

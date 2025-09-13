@@ -21,7 +21,6 @@ export const register = async(req,res,next)=>{
         });
         return res.status(201).json({message:"success"});
 }
-
 export const login = async(req,res,next)=>{
 
         const {email,password}= req.body;
@@ -32,7 +31,7 @@ export const login = async(req,res,next)=>{
         if(!user){
             return next(new AppError("user not found",404));
         }
-        const check = await bcrypt.compareSync(password,user.password);
+        const check = bcrypt.compareSync(password,user.password);
         if(!check){
             return next(new AppError("invalid password",400));
         }
